@@ -1,0 +1,58 @@
+git init #initialising the git into the project folder
+
+#staging and index
+
+git add --all or -a #addes all the files which are unstagged
+git add <filename> <filename> #adds the selected files
+git add . #which = --all 'flag'
+
+git commit -m "description_message" 
+
+#skipping staging area
+git commit -a -m "message" #stage and commit in a single command
+
+#unstagging
+git rm --cached <filename> #unstag but does not delete the file from the local system
+git rm -f <filename> #deletes permanently (unstages too)
+git rm --cached -r -f . #unstage all the files and folder from current directory
+
+#removing or unstaging directory with files
+git rm -r --cached <dirname> #unstages the directory
+git rm -r -f <dirname> #deletes permanently (unstages too)
+
+git restore --staged <filename> #unstagging (if it's not commit and only staged)
+git restore <filename> #undo the modifications (it'll work when it's un commit or un stagged) 
+git restore --source=HEAD~0 #it restored to the desired committed version of the code , but doesn't deletes the commit
+
+#rebase
+git rebase -i <commit_id> #opens interaactive edit option (options: Drop+delete, squash=combining, pick=select "u need to pick one or many to squash somethin of n numbers)
+
+#amend
+git commit --amend -m "<message"> #changes only the previous commit
+
+#diff (before commit it's used)
+git diff <filename> or . #unstaged 
+git diff --staged <filename> or . #for staged
+
+#show (after commit it's used)
+git show <filename> or HEAD~0:<filename> or HEAD~0 #shows the differences from the previous modifications
+
+
+#Branch
+parameters of branching:-
+-d, --delete >> Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD if no upstream
+was set with --track or --set-upstream
+-D >> Shortcut for --delete --force
+-m, --move >> Move/rename a branch and the corresponding reﬂog
+-M >> Shortcut for --move --force
+-r, --remotes >> List or delete (if used with -d) the remote-tracking branches
+-a, --all >> List both remote-tracking branches and local branches
+--list >> Activate the list mode. git branch <pattern> would try to create a branch, use git branch --
+list <pattern> to list matching branches
+If speciﬁed branch does not exist yet or if --force has been given, acts exactly like --track.
+--set-upstream >> Otherwise sets up conﬁguration like --track would when creating the branch, except that where
+branch points to is not changed
+
+git branch <name> #creates the branch
+git checkout <name> #
+

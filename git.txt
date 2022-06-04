@@ -56,3 +56,8 @@ branch points to is not changed
 git branch <name> #creates the branch
 git checkout <name> #
 
+#stash
+git stash push #push keeps the changes in background
+git stash pop #pop brings the changes from background to unstage
+git stash clean #git stash clean deletes the changes kept in background
+
